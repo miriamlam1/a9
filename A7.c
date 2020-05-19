@@ -9,6 +9,7 @@ P4.1
 void DAC_init(){
     P4->SEL0 &= ~NOTCS; // pin 4.1 GPIO
     P4->SEL1 &= ~NOTCS;
+
     P4->OUT |= NOTCS;   //initialize high bec CS is active low
     P4->DIR |= NOTCS;   // pin 4.1 is output
 

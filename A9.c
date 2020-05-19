@@ -5,7 +5,7 @@
 #include "msp.h"
 #include "A9.h"
 
-uint8_t receive = 0;
+uint8_t received = 0;
 
 /* 14-bit -> 3FFF = 16383
  * */
@@ -25,11 +25,12 @@ void ADC_init()
                   | ADC14_CTL0_SHT0_0; // sample every 4 clock cycles
 
     ADC14 -> CTL1 |= ADC14_CTL1_RES__14BIT; //conversion result resolution
-    ADC14 -> MCTL[0] |= ADC14_MCTL_INCH_1; //input channel select bc A1
+    ADC14 -> MCTL[0] |= ADC14_MCTLN_INCH_1; //input channel select bc A1
     ADC14 -> CTL0 |= ADC14_CTL0_ENC; //must be set to 1 before any conv.enable adc to start running
     ADC14 -> IER0 |= ADC14_IER0_IE0; //where to write in memory when interrupt
     NVIC -> ISER[0] = 1 <<(ADC14_IRQn & 31); //set NVIC interrupt
-    _enable__irq(); //enabled global interrupts
+
+    __enable_irq();  //enabled global interrupts
 
     ADC14 -> CTL0 |= ADC14_CTL0_SC; //start conversion
 }
@@ -43,29 +44,24 @@ uint32_t get_conversion_results() // returns weird number look at p62 -> voltage
 uint16_t voltage_conversion(uint32_t data){ //
     uint16_t voltage;
     voltage = data; // formula
+    return voltage;
 }
 
-void transmit_word(char data_array[]){
+void transmit_word(char *word){
     uint16_t i;
-    for(i=0; i<data_array.size(); i++){
-        transmit_data(data_array[i]);
+    for(i=0; i<strlen(word); i++){
+        transmit_data(word[i]);
     }
-
 }
 
 void set_global_flag(uint8_t val){
-    receive = val;
+    received = val;
 }
 
 uint8_t get_global_flag(){
-    return receive;
-}
-
-void make_new_sample(){
-
+    return received;
 }
 
 void ADC14_IRQHandler(){
-    ADC14 -> IER0 &= ~EUSCI_A_IE_RXIE;   //disable interrupt
-    receive = 1;
+    received = 1;
 }

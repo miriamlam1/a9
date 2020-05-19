@@ -1,0 +1,59 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+SHELL = cmd.exe
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CMD_SRCS += \
+../msp432p401r.cmd 
+
+C_SRCS += \
+../A7.c \
+../A8.c \
+../A9.c \
+../main.c \
+../startup_msp432p401r_ccs.c \
+../system_msp432p401r.c 
+
+C_DEPS += \
+./A7.d \
+./A8.d \
+./A9.d \
+./main.d \
+./startup_msp432p401r_ccs.d \
+./system_msp432p401r.d 
+
+OBJS += \
+./A7.obj \
+./A8.obj \
+./A9.obj \
+./main.obj \
+./startup_msp432p401r_ccs.obj \
+./system_msp432p401r.obj 
+
+OBJS__QUOTED += \
+"A7.obj" \
+"A8.obj" \
+"A9.obj" \
+"main.obj" \
+"startup_msp432p401r_ccs.obj" \
+"system_msp432p401r.obj" 
+
+C_DEPS__QUOTED += \
+"A7.d" \
+"A8.d" \
+"A9.d" \
+"main.d" \
+"startup_msp432p401r_ccs.d" \
+"system_msp432p401r.d" 
+
+C_SRCS__QUOTED += \
+"../A7.c" \
+"../A8.c" \
+"../A9.c" \
+"../main.c" \
+"../startup_msp432p401r_ccs.c" \
+"../system_msp432p401r.c" 
+
+
