@@ -47,11 +47,18 @@ uint16_t voltage_conversion(uint16_t data){ //
 }
 
 void transmit_word(uint16_t word){ // 999 for 1v
-    transmit_data(word/1000 + 48); //digit
+    if (word <= 0 || word > 4000)
+        word = 0;
+    transmit_data(word/1000 + '0'); //digit
+    delay_us(5000);
     transmit_data('.');
-    transmit_data((word /100)%10 + 48);
-    transmit_data((word /10)%10 + 48);
+    delay_us(5000);
+    transmit_data((word /100)%10 + '0');
+    delay_us(5000);
+    transmit_data((word /10)%10 + '0');
+    delay_us(5000);
     transmit_data(' ');
+    delay_us(5000);
 }
 
 void set_global_flag(uint8_t val){

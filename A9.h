@@ -6,6 +6,7 @@
 
 #include <string.h>
 #include "A8.h"
+#include "A2.h"
 #include <math.h>
 
 void ADC_init();
