@@ -31,27 +31,27 @@ void ADC_init()
     NVIC -> ISER[0] = 1 <<(ADC14_IRQn & 31); //set NVIC interrupt
 
     __enable_irq();  //enabled global interrupts
-
     ADC14 -> CTL0 |= ADC14_CTL0_SC; //start conversion
 }
 
 uint32_t get_conversion_results() // returns weird number look at p62 -> voltage you want
 {
-    uint32_t data = 0;
-    data = (ADC14 -> MEM[0] |= ADC14_MEMN_CONVRES_MASK); //conversion results are written to ADC14MEM
+    uint32_t data;// = 0;
+    data = ADC14 -> MEM[0]; //conversion results are written to ADC14MEM
     return data;
 }
-uint16_t voltage_conversion(uint32_t data){ //
+uint16_t voltage_conversion(uint16_t data){ //
     uint16_t voltage;
-    voltage = data; // formula
+    voltage = 1000*(data - 150)/4980; // formula
     return voltage;
 }
 
-void transmit_word(char *word){
-    uint16_t i;
-    for(i=0; i<strlen(word); i++){
-        transmit_data(word[i]);
-    }
+void transmit_word(uint16_t word){ // 999 for 1v
+    transmit_data(word/1000 + 48); //digit
+    transmit_data('.');
+    transmit_data((word /100)%10 + 48);
+    transmit_data((word /10)%10 + 48);
+    transmit_data(' ');
 }
 
 void set_global_flag(uint8_t val){
@@ -63,5 +63,6 @@ uint8_t get_global_flag(){
 }
 
 void ADC14_IRQHandler(){
+    ADC14 -> IER0 &= ~ADC14_IER0_IE0;
     received = 1;
 }

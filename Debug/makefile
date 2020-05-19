@@ -10,6 +10,7 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
+"./A2.obj" \
 "./A7.obj" \
 "./A8.obj" \
 "./A9.obj" \
@@ -159,8 +160,8 @@ a9.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "A7.obj" "A8.obj" "A9.obj" "main.obj" "startup_msp432p401r_ccs.obj" "system_msp432p401r.obj" 
-	-$(RM) "A7.d" "A8.d" "A9.d" "main.d" "startup_msp432p401r_ccs.d" "system_msp432p401r.d" 
+	-$(RM) "A2.obj" "A7.obj" "A8.obj" "A9.obj" "main.obj" "startup_msp432p401r_ccs.obj" "system_msp432p401r.obj" 
+	-$(RM) "A2.d" "A7.d" "A8.d" "A9.d" "main.d" "startup_msp432p401r_ccs.d" "system_msp432p401r.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

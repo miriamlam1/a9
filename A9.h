@@ -6,15 +6,19 @@
 
 #include <string.h>
 #include "A8.h"
+#include <math.h>
+
 void ADC_init();
+
+//volatile extern uint16_t to_transmit;
 
 uint32_t get_conversion_results();
 
 void set_global_flag(uint8_t val);
-uint16_t voltage_conversion(uint32_t data);
+uint16_t voltage_conversion(uint16_t data);
 uint8_t get_global_flag();
 
 void ADC14_IRQHandler();
-void transmit_word(char *word);
+void transmit_word(uint16_t word);
 
 #endif /* A9_H_ */

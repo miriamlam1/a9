@@ -9,6 +9,7 @@ CMD_SRCS += \
 ../msp432p401r.cmd 
 
 C_SRCS += \
+../A2.c \
 ../A7.c \
 ../A8.c \
 ../A9.c \
@@ -17,6 +18,7 @@ C_SRCS += \
 ../system_msp432p401r.c 
 
 C_DEPS += \
+./A2.d \
 ./A7.d \
 ./A8.d \
 ./A9.d \
@@ -25,6 +27,7 @@ C_DEPS += \
 ./system_msp432p401r.d 
 
 OBJS += \
+./A2.obj \
 ./A7.obj \
 ./A8.obj \
 ./A9.obj \
@@ -33,6 +36,7 @@ OBJS += \
 ./system_msp432p401r.obj 
 
 OBJS__QUOTED += \
+"A2.obj" \
 "A7.obj" \
 "A8.obj" \
 "A9.obj" \
@@ -41,6 +45,7 @@ OBJS__QUOTED += \
 "system_msp432p401r.obj" 
 
 C_DEPS__QUOTED += \
+"A2.d" \
 "A7.d" \
 "A8.d" \
 "A9.d" \
@@ -49,6 +54,7 @@ C_DEPS__QUOTED += \
 "system_msp432p401r.d" 
 
 C_SRCS__QUOTED += \
+"../A2.c" \
 "../A7.c" \
 "../A8.c" \
 "../A9.c" \

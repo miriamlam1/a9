@@ -22,6 +22,10 @@ main.obj: C:/ti/ccs1000/ccs/ccs_base/arm/include/system_msp432p401r.h
 main.obj: ../A8.h
 main.obj: ../A9.h
 main.obj: C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/string.h
+main.obj: C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/math.h
+main.obj: C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/_defs.h
+main.obj: C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/machine/_limits.h
+main.obj: ../A2.h
 
 ../main.c: 
 C:/ti/ccs1000/ccs/ccs_base/arm/include/msp.h: 
@@ -45,3 +49,7 @@ C:/ti/ccs1000/ccs/ccs_base/arm/include/system_msp432p401r.h:
 ../A8.h: 
 ../A9.h: 
 C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/string.h: 
+C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/math.h: 
+C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/_defs.h: 
+C:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.0.LTS/include/machine/_limits.h: 
+../A2.h: 
